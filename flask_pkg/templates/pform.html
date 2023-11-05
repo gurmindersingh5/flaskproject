@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Product{% endblock %}
+
+{% block h1 %}Product Entry{% endblock %}
+
+{% block content %}
+
+ <div>
+
+    <form method="POST" id="pform" action="{{url_for('p_form')}}" style="color:navy" class="left-a" >
+                {{form.hidden_tag()}}
+
+        <div style="padding: 15px;">
+            <table border="1">
+              <thead>
+                <tr>
+                   <th>{{form.name.label(style="font-size: 24px; width:600px; font-weight: bold;")}}</th>
+                  <th>{{form.price.label(style="font-size: 24px; width:200px; font-weight: bold;")}}</th>
+                  <th>{{form.qty.label(style="font-size: 24px; width:100px; font-weight: bold;")}}</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                    <td >{{ form.name(style="font-size: 24px; width:800px; font-weight: normal; min-height:80px;  ") }}</td>
+                    <td >{{ form.price(style="font-size: 24px; width:200px; min-height:35px; font-weight: normal;") }}</td>
+                    <th>{{form.qty(style="font-size: 24px; width:100px; min-height:35px; font-weight: normal;")}}</th>
+                  </tr>
+               </tbody>
+            </table>
+        </div>
+
+        {{ form.submit(class="btn btn-lg custom-class", style="color: black; background-color: #9DFEB9; border-color: #8CE7A6; width:150px; height:40px;") }}
+
+    </form>
+
+      
+      <div id="div_note" class="div_note" style="margin-top: 30px;" >
+        {{note}}
+</div>
+</div>
+<script src="/flask_pkg/static/js/div-note.js"></script>
+
+{% endblock %}
+
+{%block footer%}
+
+{%endblock%}

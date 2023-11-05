@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Form Page{% endblock %}
+
+    {% block content %}
+    <h1 class="centered-text">Data Entry </h1>
+<div class=" container">
+    <form method="POST" style="color:navy">
+        {{form.hidden_tag()}}
+        {{form.Item.label()}}
+        {{form.Item()}}
+        {{form.Price.label()}}
+        {{form.Price()}}
+        {{form.Submit(class="btn btn-lg ") }}
+    </form>
+
+</div>
+{% endblock %}
+
+<footer>
+
+    {% block footer %}
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+        {% endblock %}
+</footer>

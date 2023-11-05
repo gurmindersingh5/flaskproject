@@ -1,0 +1,77 @@
+
+/* CSS for Login Page Table */
+.login-container {
+    max-width: 500px;
+    min-width: 400px;
+
+    margin: 20px auto;
+    padding: 20px;
+    height: auto;
+    text-align: center;
+    align-items: center;
+    
+    background-color: #f2f2f2;
+    border: collapse;
+    border-radius: 5px;
+  }
+  /* Hide table border */
+ .login-container table {
+    border-collapse: collapse;
+    border: none;
+  }
+  
+  #btn{
+    display: none;
+  }
+  
+  /* Hide border for table cells */
+  .login-container table td, th, button {
+    border: none;
+    transition: .4s;
+    
+  }
+  .login-container table button:hover{
+    background-color: darkgray;
+    border-radius: 10px;
+
+  }
+  
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .password {
+    padding: 9px;
+    font-size: medium;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  #eye{
+    padding: 10px;
+    font-size: medium;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+
+  }
+
+  #submit {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    font-size: .90em;
+    width: 100px;
+    border-radius: 3px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-form input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+

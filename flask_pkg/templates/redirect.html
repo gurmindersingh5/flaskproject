@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block title %}Redirecting{% endblock %}
+
+{% block h1 %}Redirecting...{% endblock %}
+
+{% block content %}
+<link id="css_link" rel="stylesheet" type="text/css" href="/flask_pkg/static/css/login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<style>
+/*nter the spinner vertically and horizontally */
+        /* Center the container both vertically and horizontally */
+.spinner-container {
+    display: flex;
+    justify-content: center; /* Horizontal centering */
+    align-items: center; /* Vertical centering */
+    height: auto; /* Make the container fill the viewport height */
+}
+
+/* Style the spinner (replace with your spinner's class or ID) */
+
+.spinner {
+    position: absolute;
+    width: 50px; /* Adjust the width and height as needed */
+    height: 50px;
+    font-size: larger;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+    left: 50%;
+    border: 4px solid #b9b8b8; /* Spinner border */
+    border-top: 4px solid #3498db; /* Spinner color */
+    border-radius: 50%; /* Make it round */
+    animation: spin 1s linear infinite; /* Add a spinning animation */
+}
+
+/* Spinning animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+    </style>
+
+<div  style="font-size: 2em; left:50%; margin-top:50px; font-weight:bolder ;color:teal;">
+  Please login as Admin ...    
+</div>
+
+<div class="spinner-container">
+    <div class="spinner" ></div>
+</div>
+<input id="redirect_val" type="hidden" value="{{redirect_val}}">
+<!-- <script>
+    setTimeout(function(){
+        var val;
+        
+        var dataToSend = {
+            val: document.getElementById('redirect_val').value
+        };
+
+        // Convert the data to a query string
+        var queryString = Object.keys(dataToSend)
+            .map(key => key + '=' + encodeURIComponent(dataToSend[key]))
+            .join('&');
+
+        // Build the URL with the query parameters
+        var redirectUrl = "{{ url_for('login') }}?" + queryString;
+
+
+            window.location.href = redirectUrl;
+
+
+}, 200) 
+
+</script> -->
+
+{%endblock%}

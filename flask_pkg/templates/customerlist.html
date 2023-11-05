@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}Customer List...{% endblock %}
+{% block h1 %}Customer List{% endblock %}
+
+    {% block content %}
+<style>
+  .btn{
+
+    padding: 2px auto;
+    transition: .2s;
+    color: rgb(1, 1, 1);
+    font-size: large;
+    border-radius: 2px;
+    padding: 2px ;
+    width: 80px;
+    height: 30px;
+  }
+  .btn:hover{
+    background-color: #fff;
+    color: #000;
+  }
+.table{
+  border-collapse:collapse;
+  border-radius: 2px; /* Adjust the value as needed */
+   border: solid 0px;
+  border-color: lightcoral;
+}
+#name-header.sorted {
+
+  background-image: url('/static/images/up.png');
+}
+
+#name-header.sorted.reverse {
+  background-image: url('/static/images/down.png');
+}
+
+.alt-row-color{
+  color: black;
+
+}
+</style>
+    <form method="POST" >
+        {{form.hidden_tag()}}
+            <div class="box" style="grid-template-columns: 35% 35% 30% ;">
+
+                <div style="margin-right:20px;">{{ form.S_name.label }} {{ form.S_name(class="form-control", style="height:29px; width:240px;") }}</div>
+                <div style="margin-right:20px;">{{ form.S_address.label }} {{ form.S_address(class="form-control", style="height:29px; width:230px;") }}</div>
+                <div style="padding: 2px 0px 0px 20px; text-align:left;" ><button class="btn">Search</button></div>
+            </div>
+    </form>
+
+ 
+
+<div  style="padding: 15px; font-size: 18px;" >
+    <table class="table" border="1" >
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th id="name-header" class="sorted" ><a href="{{ url_for('customerlist', sort='name') }}" style="  text-decoration: none;">Name</a></th>
+          <th>Address</th>
+          <th>Contact</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in results %}
+          <tr class="alt-row-color">
+            <td >{{ loop.index }}</td>
+            <td ><a id="{{item.cust_id}}" href="{{ url_for('customerlist', sort=item.cust_id) }}" style="text-decoration: none;">{{ item.name }}</a></td>
+            <td >{{ item.address }}</td>
+            <td > {{item.contact }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <link rel="stylesheet" type="text/css" href="/flask_pkg/static/css/style.css">
+
+     <div id="div_note" class="div_note" >
+              {{note}}
+        </div>
+ 
+<script src="{{ url_for('static', filename='js/jquery-3.6.4.min.js') }}"></script>
+<script src="/flask_pkg/static/js/customerlist.js"></script>
+<!-- script to animate {{note}} -->
+<script src="/flask_pkg/static/js/div-note.js"></script>
+
+{% endblock %}
+
+{%block footer%}
+{%endblock%}
+

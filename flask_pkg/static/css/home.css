@@ -1,0 +1,202 @@
+.div-bg .icon-holder{
+  background-color: rgb(235, 235, 235);
+  height: 25%;
+  width: 80%;
+  border-radius: 9px;
+  margin: 10px 5px 5px 28px;
+  padding-top: 7px ;
+  justify-content: space-between;
+}
+.chart {
+    position: relative;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 380px;
+    border-radius: 4px;
+    left: 25px;
+    top: 25px;
+    width: 80%;
+    height: auto;
+    background-color: transparent;
+    bottom: 25px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.one {
+    width: 100%;
+    height: auto;
+
+}
+
+.two {
+    width: 100%;
+    height: 60%;
+
+}
+
+.three {
+    width: 100%;
+    height: 60%;
+
+}
+
+
+.clock-container{
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center horizontally */
+    background-color: transparent;
+    color: #040404;
+    width: 160px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 20px ;
+    position:absolute;
+    font-size: 2rem;
+    border: solid 2px white;
+    font-family: 'Helvetica Neue', sans-serif;
+    box-shadow: 0 0 1px 1px;
+    top: 130px;
+    right: 65px;
+    
+    }
+
+.clock-container:hover {
+    box-shadow: 0 0 1px 1px;
+    transition: .8s;
+
+}
+
+
+.clock {
+    display: flex;
+    position: relative;
+    color: rgb(33, 5, 69);
+    position: relative;
+
+  }
+  .clock:hover{
+    transition: .5s;
+
+  }
+  
+.date {
+    display: flex;
+    flex-direction: column;
+    height: 70;
+    justify-content: space-between;
+    text-align: center;
+    width: auto;
+    font-size: 18px;
+    overflow: hidden;
+    transition: .5s;
+    visibility: hidden;
+
+}
+
+.weather-container {
+    display: flex;
+    flex-direction: column; /* Arrange children in a column */
+    align-items: center; /* Center horizontally */
+
+    background-color: transparent;
+    color: #040404;
+    width: 160px;
+    height: auto;
+    min-height: 100px;
+    
+    padding: 10px;
+    border-radius: 15px;
+    margin: 5px 20px ;
+    position:absolute;
+    font-size: 1rem;
+    border: solid 2px white;
+
+    box-shadow: 0 0 1px 1px;
+    top: 160px;
+    transition: transform .3s; /* Smooth transition on hover */
+
+  }
+
+  @keyframes scaleAnimation {
+    0%, 100% {
+      transform: scale(1); /* Initial and final size (normal) */
+    }
+    50% {
+      transform: scale(1.05); /* Scaled up to 120% in the middle of animation */
+    }
+  }
+
+  .weather-container:hover {
+    animation: scaleAnimation .5s ease-in-out 1;
+
+    transition: .5;
+
+  }
+
+/* pasted later  */
+
+    #div1,
+    #div2,
+    #div3,
+    #div4 {
+      display:"none";
+      justify-content: center;
+      align-items: center;
+      height: 350px;
+      background-color: transparent;
+      margin: 0px;
+      /* padding: 50px; */
+      
+  }
+  
+  .calculator-container {
+      width: 420px;
+      height: 330px;
+      align-self: center;
+      text-align: center;
+      margin-left: 60px;
+
+  }
+  
+  .calculator {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+      align-self: center;
+  }
+  
+  button {
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+  }
+  
+  button:hover {
+      background-color: #2980b9;
+  }
+  
+  input {
+      grid-column: span 4;
+      padding: 10px;
+      font-size: 24px;
+      text-align: right;
+      border: none;
+      border-radius: 5px;
+      background-color:aliceblue;
+  }
+  

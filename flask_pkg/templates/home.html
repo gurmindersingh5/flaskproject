@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% block title %}Home Page{% endblock %}
+
+
+{% block content %}
+<div class="icon-holder">
+<span id="calcElem" style="height: 42px; width: 42px; border-radius:4px; background-color:rgb(56, 87, 243); padding-top: 1px; "><img id="calc" style="height: 40px; width:40px" src="/flask_pkg/static/svg/calc_icon.svg"></span>
+<span id="graphElem" style="height: 42px; width: 42px; border-radius:4px; background-color:rgb(56, 87, 243); padding-top: 1px; "><img id="graph" style="height: 40px; width:40px" src="/flask_pkg/static/svg/bargraph_icon.svg"></span>
+<span id="bargraphElem" style="height: 42px; width: 42px; border-radius:4px; background-color:rgb(56, 87, 243); padding-top: 1px; "><img id="bargraph" style="height: 40px; width:40px" src="/flask_pkg/static/svg/graph_icon.svg"></span>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="/flask_pkg/static/css/home.css">
+
+<div class="chart">
+
+<div id="div1" class="one">
+    <canvas id="monthly-sales"></canvas>
+    <a id="monthly_sale" style="display: none;">{{monthly_sale}}</a>
+    <a id="months" style="display: none;">{{months}}</a>
+</div>
+
+<div id="div2" class="two">
+    <canvas id="purchases"></canvas>
+</div>
+
+
+<div id="div3">
+  <div class="calculator-container">
+      <div class="calculator">
+          <input type="text" id="display" value="" disabled>
+          <button onclick="appendToDisplay('7')">7</button>
+          <button onclick="appendToDisplay('8')">8</button>
+          <button onclick="appendToDisplay('9')">9</button>
+          <button onclick="appendToDisplay('+')">+</button>
+          <button onclick="appendToDisplay('4')">4</button>
+          <button onclick="appendToDisplay('5')">5</button>
+          <button onclick="appendToDisplay('6')">6</button>
+          <button onclick="appendToDisplay('-')">-</button>
+          <button onclick="appendToDisplay('1')">1</button>
+          <button onclick="appendToDisplay('2')">2</button>
+          <button onclick="appendToDisplay('3')">3</button>
+          <button onclick="appendToDisplay('*')">*</button>
+          <button onclick="appendToDisplay('0')">0</button>
+          <button onclick="appendToDisplay('.')">.</button>
+          <button onclick="clearDisplay()" style="border: 10px #2980b9;">C</button>
+          <button onclick="calculateResult()">=</button>
+      </div>
+  </div>
+</div>
+ 
+
+</div>
+
+
+<div class="clock-container">
+
+    <div class="clock">
+    </div >
+    
+    <div id="date" class="date">
+    </div>
+    
+    <div class="weather-container">
+        <i class="weather-icon fas fa-sun"></i>
+        <div class="weather-info">
+          <div class="temperature">Fetching</div>
+          <div class="description">weather data...</div>
+        </div>
+    </div>
+    <a id="data" style="display: none;">{{data}}</a>
+    <a id="price" style="display: none;">{{price}}</a>
+    
+</div>
+
+
+<script src="/flask_pkg/static/js/cdn.jsdelivr.net_npm_chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js"></script>
+<script src="/flask_pkg/static/js/jquery-3.6.4.min.js"></script>
+
+<script src="/flask_pkg/static/js/home.js"></script>
+
+    {%endblock%}
+
+<footer>
+{% block footer%}
+    <a class="footer">&copy; 2023 Comapany Name. All rights reserved.</a>
+{% endblock %}
+</footer>
+
+<!-- 
+    https://www.utctime.net/clock.svg
+<div class="clock shadow">
+    <div class="hours-container">
+    <div class="hours" style="transform: rotateZ(100deg);"></div>
+    </div>
+    <div class="minutes-container" data-second-angle="342" style="transform: rotateZ(30deg);">
+    <div class="minutes" style="transform: rotateZ(120deg);"></div>
+    </div>
+    <div class="seconds-container" style="transform: rotateZ(1602deg);">
+    <div class="seconds" style="transform: rotateZ(342deg);"></div>
+    </div>
+    </div>
+</div> -->

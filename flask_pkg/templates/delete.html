@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Product{% endblock %}
+{% block h1 %}Delete Product{% endblock %}
+
+    {% block content %}
+<style>
+.icon-linkadd {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-image: url('static/images/add_color.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.icon-linkminus {
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+  background-image: url('static/images/minus_color.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+</style>
+
+    <form method="POST" >
+            <div style="margin-bottom:5px; " >
+                <a>Part Name: </a><input style="margin-right:20px; height:29px; width:240px;"  name="name">
+                <button type="submit" name="check" style="margin-right:20px; height:29px; width:100px;">Search</button>
+                <a href="{{url_for('p_form')}}" class="icon-linkadd" style="margin-left:449px; margin-top:10px;"></a> <a href="{{url_for('p_form')}}" style="font-size:20px;  font-weight: bold; margin-right:35px; padding:2px ;text-decoration:none; margin-top:15px;">Add Product</a>
+                <a href="{{url_for('delete')}}" class="icon-linkminus"></a> <a href="{{url_for('delete')}}" style="font-size:20px;  font-weight: bold; margin-right:10px; padding:2px ;text-decoration:none; margin-top:15px;color:darkred">Edit Product</a>
+
+
+            </div>
+    </form>
+
+
+<form id="form">
+<div style="padding: 15px;">
+    <table border="1" id="myTable">
+      <thead>
+        <tr>
+          <th>S.No.</th>
+          <th><a href="{{ url_for('inventory', sort='name') }}">Part Name</a></th>
+          <th>Qty avaliable</th>
+          <th>Price</th>
+            <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in results %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ item.name }}</td>
+            <td >{{item.qty}}</td>
+            <td>{{ item.price }}</td>
+            <td style="max-width:100px;">
+                <button value="{{item.part_id}}" id="change" name="edit" type="submit" style="padding:2px; height:29px; width:80px; background-color:lightgrey;">Edit</button>
+                <button value="{{item.part_id}}" id="delete_btn" name="delete_btn" type="submit" style="padding:2px; height:29px; width:80px; background-color:pink;">Delete</button>
+
+            </td>
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+
+     <div style=" background-color: lightyellow; color:darkgreen; padding: 3px; border: 1px solid darkgreen; display: inline-block;">
+              <ul>{{note}}</ul>
+        </div>
+</div>
+</form>
+<script>
+
+</script>
+{% endblock %}
+
+{%block footer%}
+{%endblock%}

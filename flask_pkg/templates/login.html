@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block h1 %} Admin Login{% endblock %}
+
+{% block content %}
+
+<link id="css_link" rel="stylesheet" type="text/css" href="/flask_pkg/static/css/login.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+<div class="login-container">
+    <form method="POST" action="{{ url_for('login')}}" id="login-form" class="login-form" >
+        <table>
+            <tr><td>{{form.Username.label}}: </td><td><a style="font-size: 1.3em; color: green;" > &nbsp;{{form.Username.default}}</a></td></tr>
+            <tr><td>{{form.Password.label}}:</td><td><div>{{ form.Password(class='password', placeholder='Enter your password') }}
+                <i class="fa-solid fa-eye" id="eye" ></i></div>
+                {% for error in form.Password.errors %}
+                <p class="error">{{ error }}</p>
+            {% endfor %}
+  
+            </td></tr>
+            <!-- <tr><td></td><td><button id="toggle-password" type="button" style="font-size: large; ">&nbsp;show</button></td></tr> -->
+            <tr ><td></td><td><button id="submit" type="submit" value="Login">Login</td></tr>
+        </table>
+    </form>
+    {% if failed_login: %}
+        <div id="loginNote" style="display: flex; align-self:center; color:red;">{{failed_login}}</div>
+    {% endif %}
+    
+    {% if not failed_login:%}
+    <div id="loginNote" style="display: none;">{{failed_login}}</div>
+
+    {% endif %}
+</div>
+
+<input id="redirect_val" type="hidden" value="{{redirect_val}}">
+
+
+<script>
+    const passwordField = document.querySelector(".password");
+    const toggleButton = document.getElementById("eye");
+
+    toggleButton.addEventListener("click", () => {
+      if (passwordField.type === "password") {
+        passwordField.type = "text"; // Show the password
+        toggleButton.style.textDecorationLine = "line-through";
+      } else {
+        passwordField.type = "password"; // Hide the password
+        toggleButton.style.textDecorationLine = ""
+      }
+    });
+
+    
+</script>
+{%endblock%}

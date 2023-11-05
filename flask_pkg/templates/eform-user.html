@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Form Page User{% endblock %}
+
+{% block content %}
+    <h1 class="centered-text">Data Entry for {{username}}</h1>
+<body onload="loadname()">
+<div class=" container div-bg">
+  <div class="left-align">
+    <form method="POST" id="EntryForm"  style="color:navy" class="left-align" >
+        {{form.hidden_tag()}}
+            <div class="title">
+                <label id="name">Selected Customer:  </label>
+                <p id="name2"> </p>
+
+
+
+    </form>
+  </div>
+</div>
+</body>
+
+<script src="/flask_pkg/static/js/eform-user.js">
+</script>
+
+
+
+{% endblock %}
+
+
+
+<footer>
+    {% block footer %}
+        <p>&copy; 2023 My Website. All rights reserved.</p>
+        {% endblock %}
+</footer>

@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+
+{% block title %}New Entry{% endblock %}
+
+{% block h1 %}Purchase Entry{% endblock %}
+
+{% block content %}
+<div class=" container div-bg" >
+  <div class="left-align">
+
+      <form method="POST" id="EntryForm" name="EntryForm"  >
+        {{form.hidden_tag()}}
+          <label style="font-size: 18px; margin-left:35px;">Select a Customer:</label> <br>
+          <div style="margin-left:35px; " >
+              <select id="Customer_name" style="font-size: 20px; width:300px; margin-right:10px;">
+                <option value="0">Select Customer</option>
+                {% block customer %}
+                    {% for elem in name_list %}
+                        <option value="{{elem.cust_id}}">{{elem}}</option>
+                    {% endfor %}
+                {% endblock %}
+              </select>
+              <a id="cust-address" > </a>
+          </div>
+      </form>
+
+
+      <form method="POST" id="EntryForm2" action="{{url_for('e_form')}}" style="color:navy" class="left-align" >
+        {{form.hidden_tag()}}
+
+                <div style="padding: 15px;">
+                    <table border="1">
+                      <thead>
+                        <tr>
+                            <th style="font-size: 24px; width:700px; font-weight: bold;">Parts</th>
+                            <th style="font-size: 24px; width:30px; font-weight: bold;">Qty</th>
+                            <th style="font-size: 24px; width:30px; font-weight: bold;">Price/Item</th>
+                        </tr>
+                      </thead>
+
+                      <tbody>
+                          <tr>
+                              <td>
+                              {% block part %}
+                                  <select id="part" style="font-size: 20px; width:600px;" >
+                                    <option value="0">Select Product</option>
+                              {% for key in part_list %}
+                                    <option value="key">{{key}}</option>
+                              {% endfor %}
+                                  </select>
+                              {% endblock %}
+                              </td>
+                              <td >{{ form.Qty(class="form-control form-control-lg", style="font-size: 20px; width:80px;") }}</td>
+                              <td ><input style="font-size:20px; min-height: 27px; width:80%; margin-bottom:2px;" id="price-input"; value=""></td>
+                          </tr>
+                       </tbody>
+                    </table>
+                        <input type="hidden" id="hiddenInpPart" name="Parts_purchased" value="">
+                        <input type="hidden" id="hiddenInpPrice" name="Price" value="">
+                        <input type="hidden" id="hiddenInpId" name="custid" value="">
+
+                </div>
+
+                <div id="submit_div" style="margin-left:15px; margin-top:5px;" >
+                  {{form.Submit(class="btn btn-lg ") }}
+                </div><br><br><br><br>
+
+
+              <div style="text-align: center; "><div id="div_note" class="div_note" style="align-self: center; opacity:0%; transition: 1s;" >{{e_form_note}}</div></div>
+              <div style="text-align: center; "><div id="div_note" class="div_note" style="align-self: center; opacity:0%; transition: 1s;" >{{LASTENTRY}}</div></div>
+      </form>
+
+  </div>
+<div class="div_note" style="color: red;">{{err_msg}}</div>
+</div>
+
+
+<script src="/flask_pkg/static/js/eform.js">
+
+
+
+</script>
+
+{% endblock %}
