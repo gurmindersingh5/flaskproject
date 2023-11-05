@@ -12,10 +12,11 @@ cd /var/www/
 git clone https://github.com/gurmindersingh5/flaskproject.git
 
 # Set up a Python virtual environment
-python3 -m venv venv
+sudo python3 -m venv venv
 source venv/bin/activate
 
 # Install Python dependencies
+pip3 install -r flaskproject/requirements.txt
 pip install -r /var/www/flaskproject/requirements.txt
 
 # Install mod_wsgi for Python 3
